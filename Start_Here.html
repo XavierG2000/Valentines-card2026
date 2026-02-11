@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For You, From Me ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- floating hearts on both sides (soft glow) -->
+  <div class="side-hearts side-hearts-left" aria-hidden="true"></div>
+  <div class="side-hearts side-hearts-right" aria-hidden="true"></div>
+
+  <!-- NEW: upward floating hearts + random photos layers -->
+  <div id="floatingHeartsLayer" aria-hidden="true"></div>
+  <div id="randomPhotosLayer" aria-hidden="true"></div>
+
+  <div class="shell">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <span class="brand-heart">❤️</span>
+          <div class="brand-text">
+            <span class="brand-main">For You</span>
+            <span class="brand-sub" id="timeGreeting">FOR YOU, FROM ME</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <a class="nav-link active" href="#intro" data-section="intro">
+            <span class="nav-index">I</span>
+            <span>Intro</span>
+          </a>
+          <a class="nav-link" href="#little-things" data-section="little-things">
+            <span class="nav-index">II</span>
+            <span>Little Things</span>
+          </a>
+          <a class="nav-link" href="#memories" data-section="memories">
+            <span class="nav-index">III</span>
+            <span>Memories</span>
+          </a>
+          <a class="nav-link" href="#future" data-section="future">
+            <span class="nav-index">IV</span>
+            <span>Future</span>
+          </a>
+          <a class="nav-link" href="#reservation" data-section="reservation">
+            <span class="nav-index">V</span>
+            <span>Reservation</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <p class="sidebar-note">
+          Scroll or tap the chapters on the left.<br />
+          Tiny hint: some things react if you tap them. 👀
+        </p>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <main class="content">
+      <!-- INTRO SECTION (SCENE I) -->
+      <section class="section" id="intro">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene I · Opening</p>
+            <h1 class="title">
+              Hi, love.
+              <button class="tiny-heart" id="tinyHeart" aria-label="Hidden message">❤️</button>
+            </h1>
+            <p
+              class="typewriter intro-text"
+              data-text="
+I wanted to give you something a little different.
+Not an order from an app, not something anyone else could’ve bought.
+Just me, thinking about you, and turning it into this."
+            ></p>
+          </header>
+
+          <div class="intro-actions">
+            <button class="pill-button" id="usButton">Us together 🤍</button>
+            <a class="primary-button" href="#little-things">
+              Take me to the good stuff
+            </a>
+          </div>
+
+          <p class="intro-note">
+            You can scroll through this like a little movie, or hop around using the titles on the left.  
+            However you move through it, it’s all just… us.
+          </p>
+        </div>
+      </section>
+
+      <!-- LITTLE THINGS SECTION (SCENE II) -->
+      <section class="section" id="little-things">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene II · The Little Things</p>
+            <h2>Some of the little things I love about you</h2>
+            <p class="section-sub">
+              The big things are obvious. These are the quiet ones I notice anyway.
+            </p>
+          </header>
+
+          <ul class="love-list">
+            <li>The way being around you makes everything feel lighter.</li>
+            <li>Your laugh, especially when you’re trying not to laugh.</li>
+            <li>How you actually listen, even to my random little rants.</li>
+            <li>How safe and calm you make everything feel.</li>
+            <li>The way you care without needing any spotlight on you.</li>
+          </ul>
+
+          <div class="mood-block">
+            <p class="mood-question">
+              Be honest: reading this right now you feel more…
+            </p>
+            <div class="mood-buttons">
+              <button class="mood-btn" data-mood="loved">💗 Loved</button>
+              <button class="mood-btn" data-mood="curious">🥰 Curious</button>
+              <button class="mood-btn" data-mood="calm">😌 Calm</button>
+            </div>
+            <p class="mood-response" id="moodResponse">
+              Tap one. I’ll answer to that version of you.
+            </p>
+          </div>
+
+          <div class="mood-block">
+            <p class="mood-question">
+              Bonus scene: want to pull random little reasons I love you?
+            </p>
+            <a href="jar.html" class="primary-button">
+              Find out open the Jar 🌸
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEMORIES SECTION (SCENE III) -->
+      <section class="section" id="memories">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene III · Flashbacks</p>
+            <h2>Little moments that live rent-free in my head</h2>
+            <p class="section-sub">
+              Not a full timeline. Just the ones that replay when my brain decides to think about you for no reason.
+            </p>
+          </header>
+
+          <div class="memories-layout">
+            <div class="memories-column">
+              <div class="memory-card" data-revealed="false">
+                <p class="memory-label">A favorite memory with you</p>
+                <p class="memory-hint">Tap to reveal</p>
+                <p class="memory-text">
+                  That night we were both tired but still stayed up talking until we realized how late it was.  
+                  I remember the feeling more than the conversation.
+                </p>
+              </div>
+
+              <div class="memory-card" data-revealed="false">
+                <p class="memory-label">The first time I saw you differently</p>
+                <p class="memory-hint">Tap to reveal</p>
+                <p class="memory-text">
+                  The moment you laughed at something I said and then looked away,  
+                  but I could tell you were still smiling.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-column">
+              <div class="mini-timeline">
+                <div class="timeline-item current">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>The day we met</h3>
+                    <p>I didn’t know it yet, but something had just shifted.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>That one night that felt different</h3>
+                    <p>We were just talking, but suddenly it didn’t feel like “just talking” anymore.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>A small moment that meant a lot</h3>
+                    <p>The way you reached for me without thinking. It was tiny. I still think about it.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>Right now</h3>
+                    <p>You, reading this. Me, somewhere, thinking about you while you do.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="audio-notes">
+            <p class="audio-label">
+              If you’d rather hear me instead of just read me:
+            </p>
+            <div class="audio-buttons">
+              <button class="audio-btn" data-audio="voice1">Play this 💬</button>
+              <button class="audio-btn" data-audio="voice2">One thing I never say out loud</button>
+            </div>
+
+            <!-- Replace with your real files -->
+            <audio id="voice1" src="audio/voice1.mp3"></audio>
+            <audio id="voice2" src="audio/voice2.mp3"></audio>
+          </div>
+        </div>
+      </section>
+
+      <!-- FUTURE / REVEAL SECTION (SCENE IV) -->
+      <section class="section section-future" id="future">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene IV · What Comes Next</p>
+            <h2>Where this is all going</h2>
+            <p class="section-sub">
+              I don’t have every detail, but I know who I want in the picture.
+            </p>
+          </header>
+
+          <p
+            class="future-text typewriter"
+            data-text="
+I don’t know exactly what the future looks like yet.
+But I know this: I want you there with me.
+More little moments. More late-night laughs. More ‘us.’"
+          ></p>
+
+          <p class="future-text">
+            Thank you for being you.<br />
+            Thank you for letting me be me with you.<br />
+            Happy Valentine’s Day, love. ❤️
+          </p>
+
+          <p class="future-text ps">
+            P.S. There’s one more tiny surprise waiting for you:<br />
+            <span class="clue">
+              go check the place where we usually keep
+              <span class="clue-blank">[replace this with your clue]</span>.
+            </span>
+          </p>
+
+          <button class="primary-button reveal-button" id="revealButton">
+            Tap for your Valentine’s reveal 💌
+          </button>
+
+          <div class="reveal-message" id="revealMessage">
+            <p
+              class="typewriter"
+              data-text="
+I could’ve kept this simple. I could’ve made it flashy.
+Instead I made it like this, because I keep choosing you."
+            ></p>
+
+            <p class="reveal-details" id="revealDetails">
+              Surprise: I planned something for us.<br />
+              [Edit this line with the real plan you have for the night.]
+            </p>
+          </div>
+
+          <p class="replay-note">
+            You can come back and read this whenever you want.
+          </p>
+        </div>
+      </section>
+
+      <!-- RESERVATION SECTION (SCENE V · END TITLE) -->
+      <section class="section section-reservation" id="reservation">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene V · The Night Out</p>
+            <h2>Our Reservation</h2>
+            <p class="section-sub">
+              Turning this from a page into a real night together.
+            </p>
+          </header>
+
+          <p class="future-text">
+            I picked a place that feels like us – warm, a little extra, and made for lingering.  
+            When you’re ready, tap below and I’ll take you there.
+          </p>
+
+          <a
+            href="https://www.boucherieus.com/"
+            class="primary-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="margin-top: 1.5rem; display: inline-block;"
+          >
+            View Our Night at Boucherie 🍷
+          </a>
+
+          <p class="future-text ps" style="margin-top: 1.5rem;">
+            (It’ll open in a new tab so you don’t lose this.)
+          </p>
+
+          <p class="credits-note">
+            Starring: You & Me · Written & directed by: Me thinking about you.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- GLOBAL SECRET TOAST + OVERLAY -->
+  <div class="secret-toast" id="secretToast">
+    Okay so… you officially found a secret.  
+    Just wanted to say: you’re my favorite person. Ever.
+  </div>
+
+  <div class="dim-overlay" id="dimOverlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -656,7 +656,7 @@ body {
 
 .random-photo {
   position: absolute;
-  width: 320px;
+  width: 400px;
   max-width: 28vw;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);

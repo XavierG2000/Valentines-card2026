@@ -236,6 +236,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "photos/photo24.jpg"
   ];
 
+  // Match your CSS max-width for .random-photo
+  const PHOTO_MAX_WIDTH = 400;
+
   // === Scroll-based floating offset ===
   let lastScrollY = window.scrollY;
   let scrollOffset = 0; // shared offset, but clamped
@@ -283,25 +286,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Pick a left position:
   // - Not in the center card column
-  // - Not hugging the screen edges (to avoid cut-off)
+  // - Not hugging the screen edges
+  // - Leave enough room so a 400px-wide photo doesn't get cut off
   function getSafeLeftVW() {
     const viewportWidth = window.innerWidth;
-    const edgeMargin = 100; // ⬅️ keep photos far from borders
-    const gapFromCard = 24; // horizontal gap from card area
+    const edgeMargin = 40;      // distance from browser edges
+    const gapFromCard = 24;     // horizontal gap from card area
+    const w = Math.min(PHOTO_MAX_WIDTH, viewportWidth - edgeMargin * 2);
 
-    // Left side region: from edgeMargin to just before the card
+    // Left side region: from edgeMargin to just before the card (minus photo width)
     const leftRegionStart = edgeMargin;
-    const leftRegionEnd = Math.max(edgeMargin, forbiddenLeftStart - gapFromCard);
+    const leftRegionEnd = Math.max(edgeMargin, forbiddenLeftStart - gapFromCard - w);
 
-    // Right side region: from just after the card to viewportWidth - edgeMargin
+    // Right side region: from just after the card to viewportWidth - edgeMargin - photo width
     const rightRegionStart = Math.min(
-      viewportWidth - edgeMargin,
+      viewportWidth - edgeMargin - w,
       forbiddenLeftEnd + gapFromCard
     );
-    const rightRegionEnd = viewportWidth - edgeMargin;
+    const rightRegionEnd = viewportWidth - edgeMargin - w;
 
     const regions = [];
-
     if (leftRegionEnd - leftRegionStart > 40) {
       regions.push([leftRegionStart, leftRegionEnd]);
     }
@@ -314,8 +318,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const region = regions[Math.floor(Math.random() * regions.length)];
       leftPx = region[0] + Math.random() * (region[1] - region[0]);
     } else {
-      // Fallback: anywhere with edge margin
-      leftPx = edgeMargin + Math.random() * (viewportWidth - edgeMargin * 2);
+      // Fallback: anywhere away from extreme edges, respecting width
+      leftPx = edgeMargin + Math.random() * (viewportWidth - edgeMargin * 2 - w);
+      if (leftPx < edgeMargin) leftPx = edgeMargin;
+      if (leftPx > viewportWidth - edgeMargin - w) {
+        leftPx = viewportWidth - edgeMargin - w;
+      }
     }
 
     return (leftPx / viewportWidth) * 100; // px → vw
@@ -324,10 +332,20 @@ document.addEventListener("DOMContentLoaded", () => {
   function spawnRandomPhoto() {
     if (!photosLayer || photoSources.length === 0) return;
 
+    // Avoid using the same photo src as another currently-visible photo
+    const currentSrcs = new Set(
+      Array.from(document.querySelectorAll(".random-photo")).map(img =>
+        img.getAttribute("src")
+      )
+    );
+
+    const unusedSources = photoSources.filter(src => !currentSrcs.has(src));
+    const pool = unusedSources.length > 0 ? unusedSources : photoSources;
+
+    const src = pool[Math.floor(Math.random() * pool.length)];
+
     const img = document.createElement("img");
     img.className = "random-photo";
-
-    const src = photoSources[Math.floor(Math.random() * photoSources.length)];
     img.src = src;
 
     // Vertical placement somewhere on screen
@@ -341,20 +359,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const rotation = (Math.random() - 0.5) * 16; // -8 to +8 deg
     img.dataset.rotation = rotation.toFixed(2);
 
-    // Do NOT apply scrollOffset on spawn: they appear where we place them
     photosLayer.appendChild(img);
 
-    // Remove after fade animation (matches CSS ~9s)
+    // Remove after ~9.5s
     setTimeout(() => {
       img.remove();
     }, 9500);
   }
 
   // === Ambient photos (slower, fewer) ===
-  setTimeout(() => {
-    spawnRandomPhoto();
-    setInterval(spawnRandomPhoto, 20000); // every ~20s
-  }, 3000);
+ setTimeout(() => {
+  // first one a bit sooner
+  spawnRandomPhoto();
+
+  // second one shortly after
+  setTimeout(spawnRandomPhoto, 4000);
+
+  // then keep them coming a bit faster (every ~12s instead of 20s)
+  setInterval(spawnRandomPhoto, 9000);
+}, 1500);
 
   // === Section-based photos (each section gets a couple when first seen) ===
   const sections = document.querySelectorAll(".section");

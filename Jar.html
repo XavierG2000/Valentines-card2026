@@ -1,550 +1,365 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reasons I Love You 💕</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #ffeef8 0%, #ffd4e5 50%, #e8c4d8 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Sakura petals background */
-        .sakura-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .petal {
-            position: absolute;
-            opacity: 0;
-            animation: fall 12s infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                opacity: 0;
-                transform: translateY(-100px) rotate(0deg);
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(100vh) rotate(720deg);
-            }
-        }
-
-        /* Decorative elements */
-        .corner-decoration {
-            position: fixed;
-            width: 200px;
-            height: 200px;
-            opacity: 0.2;
-            pointer-events: none;
-        }
-
-        .corner-decoration.top-left {
-            top: 0;
-            left: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,10 Q30,10 40,30 T60,60 T80,90" fill="none" stroke="%23d4869c" stroke-width="2"/><circle cx="20" cy="20" r="5" fill="%23ffb3d9"/><circle cx="45" cy="45" r="4" fill="%23ffb3d9"/><circle cx="70" cy="75" r="3" fill="%23ffb3d9"/></svg>') no-repeat;
-        }
-
-        .corner-decoration.bottom-right {
-            bottom: 0;
-            right: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M90,90 Q70,90 60,70 T40,40 T20,10" fill="none" stroke="%23d4869c" stroke-width="2"/><circle cx="80" cy="80" r="5" fill="%23ffb3d9"/><circle cx="55" cy="55" r="4" fill="%23ffb3d9"/><circle cx="30" cy="25" r="3" fill="%23ffb3d9"/></svg>') no-repeat;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-            max-width: 600px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            margin: 40px auto 60px;
-        }
-
-        h1 {
-            color: #d4869c;
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-            animation: fadeIn 1s ease-in;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .subtitle {
-            color: #9d6b7f;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            font-style: italic;
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        .anime-reference {
-            color: #d4869c;
-            font-size: 0.9em;
-            margin-bottom: 25px;
-            font-style: italic;
-            opacity: 0.8;
-            animation: fadeIn 2s ease-in;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 15px;
-            color: #9d6b7f;
-            text-decoration: none;
-            font-size: 0.95em;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .jar-container {
-            position: relative;
-            margin: 0 auto 30px;
-            animation: fadeIn 2s ease-in;
-        }
-
-        .jar {
-            width: 300px;
-            height: 400px;
-            background: linear-gradient(to bottom, 
-                rgba(255, 255, 255, 0.6) 0%,
-                rgba(255, 240, 245, 0.7) 50%,
-                rgba(255, 255, 255, 0.6) 100%);
-            border: 3px solid #ffb3d9;
-            border-radius: 15px 15px 30px 30px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(212, 134, 156, 0.3),
-                        inset 0 0 50px rgba(255, 179, 217, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .jar-lid {
-            width: 320px;
-            height: 40px;
-            background: linear-gradient(to bottom, #ffb3d9, #ff99cc);
-            border: 3px solid #d4869c;
-            border-radius: 20px;
-            margin: 0 auto 5px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(212, 134, 156, 0.4);
-        }
-
-        .jar-lid::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 15px;
-            background: linear-gradient(to bottom, #d4869c, #b8647a);
-            border-radius: 10px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        /* Cherry blossom decorations on jar */
-        .jar::before,
-        .jar::after {
-            content: '🌸';
-            position: absolute;
-            font-size: 2em;
-            opacity: 0.3;
-        }
-
-        .jar::before {
-            top: 20px;
-            left: 20px;
-            animation: spin 20s linear infinite;
-        }
-
-        .jar::after {
-            bottom: 40px;
-            right: 20px;
-            animation: spin 15s linear infinite reverse;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .jar-label {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 220px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 3px solid #d4869c;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(212, 134, 156, 0.3);
-        }
-
-        .jar-label h2 {
-            font-size: 1.4em;
-            color: #d4869c;
-            margin-bottom: 8px;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .jar-label p {
-            font-size: 0.9em;
-            color: #9d6b7f;
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .notes-container {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            height: 250px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: flex-end;
-            padding: 10px;
-            gap: 5px;
-        }
-
-        .mini-note {
-            width: 40px;
-            height: 50px;
-            background: linear-gradient(135deg, #ffe4f0 0%, #ffc4dd 100%);
-            border: 1px solid #ffb3d9;
-            border-radius: 3px;
-            box-shadow: 0 2px 5px rgba(212, 134, 156, 0.3);
-            animation: popIn 0.5s ease-out;
-            transform-origin: center;
-        }
-
-        .mini-note:nth-child(odd) {
-            background: linear-gradient(135deg, #fff0f5 0%, #ffe4f0 100%);
-        }
-
-        .mini-note:nth-child(3n) {
-            background: linear-gradient(135deg, #ffd4e5 0%, #ffb3d9 100%);
-        }
-
-        @keyframes popIn {
-            0% {
-                transform: scale(0) rotate(0deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1) rotate(5deg);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        .pull-button {
-            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
-            color: white;
-            border: none;
-            padding: 18px 45px;
-            font-size: 1.3em;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 153, 204, 0.4);
-            transition: all 0.3s ease;
-            font-weight: bold;
-            letter-spacing: 1px;
-            animation: pulse 2s infinite;
-            text-shadow: 1px 1px 2px rgba(212, 134, 156, 0.5);
-        }
-
-        .pull-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 153, 204, 0.6);
-            background: linear-gradient(135deg, #ff99cc 0%, #ff80bf 100%);
-        }
-
-        .pull-button:active {
-            transform: translateY(0);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .note-display {
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(212, 134, 156, 0.3);
-            margin: 30px auto;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: scale(0.8) rotateX(90deg);
-            transition: all 0.5s ease;
-            max-width: 500px;
-            border: 2px solid #ffb3d9;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .note-display::before {
-            content: '🌸';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 2em;
-            opacity: 0.2;
-        }
-
-        .note-display::after {
-            content: '🌸';
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 2em;
-            opacity: 0.2;
-        }
-
-        .note-display.show {
-            opacity: 1;
-            transform: scale(1) rotateX(0deg);
-        }
-
-        .note-content {
-            font-size: 1.5em;
-            color: #d4869c;
-            line-height: 1.6;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        .note-number {
-            color: #9d6b7f;
-            font-size: 1.1em;
-            margin-top: 20px;
-            animation: fadeIn 2.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .reset-button {
-            background: rgba(255, 179, 217, 0.3);
-            color: #d4869c;
-            border: 2px solid #ffb3d9;
-            padding: 12px 30px;
-            font-size: 1em;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            font-weight: bold;
-        }
-
-        .reset-button:hover {
-            background: rgba(255, 179, 217, 0.5);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 179, 217, 0.4);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>For Indya, From Xavier ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="sakura-bg" id="sakuraBg"></div>
-    <div class="corner-decoration top-left"></div>
-    <div class="corner-decoration bottom-right"></div>
-    
-    <div class="container">
-        <a href="index.html" class="back-link">← Back to your Valentine card</a>
+  <!-- floating hearts on both sides (soft glow) -->
+  <div class="side-hearts side-hearts-left" aria-hidden="true"></div>
+  <div class="side-hearts side-hearts-right" aria-hidden="true"></div>
 
-        <h1>Reasons I Love You 💕</h1>
-        <p class="subtitle">Pull a note to discover why you're amazing</p>
-        <p class="anime-reference">"Like a fragrant flower, you bloom with dignity in my heart" 🌸</p>
-        
-        <div class="jar-container">
-            <div class="jar-lid"></div>
-            <div class="jar">
-                <div class="jar-label">
-                    <h2>For My Love 🌸</h2>
-                    <p>Each note is a reason why you make my world beautiful, just like cherry blossoms in spring</p>
-                </div>
-                <div class="notes-container" id="notesContainer"></div>
+  <!-- Effects layers -->
+  <div id="floatingHeartsLayer" aria-hidden="true"></div>
+  <div id="randomPhotosLayer" aria-hidden="true"></div>
+
+  <div class="shell">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <span class="brand-heart">❤️</span>
+          <div class="brand-text">
+            <span class="brand-main">For You</span>
+            <span class="brand-sub" id="timeGreeting">FOR YOU, FROM ME</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <a class="nav-link active" href="#intro" data-section="intro">
+            <span class="nav-index">I</span><span>Intro</span>
+          </a>
+          <a class="nav-link" href="#little-things" data-section="little-things">
+            <span class="nav-index">II</span><span>Little Things</span>
+          </a>
+          <a class="nav-link" href="#memories" data-section="memories">
+            <span class="nav-index">III</span><span>Memories</span>
+          </a>
+          <a class="nav-link" href="#future" data-section="future">
+            <span class="nav-index">IV</span><span>Future</span>
+          </a>
+          <a class="nav-link" href="#reservation" data-section="reservation">
+            <span class="nav-index">V</span><span>Reservation</span>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <main class="content">
+      <!-- INTRO -->
+      <section class="section" id="intro">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene I · Opening</p>
+            <h1 class="title">
+              Hi, love.
+              <button class="tiny-heart" id="tinyHeart" aria-label="Hidden message">❤️</button>
+            </h1>
+
+            <p
+              class="typewriter intro-text"
+              data-text="
+I wanted to give you something different — something you don’t physically have, but can reach anytime. Something attainable anywhere. Something that can keep building forever. Something you could never really lose.
+
+Not an order from an app.
+Not something anyone else could’ve bought.
+
+Just me, thinking about you a little longer than usual… and turning those thoughts into this.
+
+I didn’t want it to be loud or flashy. I didn’t want it to be something that sits on a shelf. I wanted it to be something that feels like us — simple, intentional, real.
+
+Something that grows the more we add to it.
+Something that lasts.
+
+Just me.
+Thinking about you.
+And making that the gift. 💌
+              "
+            ></p>
+          </header>
+
+          <div class="intro-actions">
+            <button class="pill-button" id="usButton">Us together 🤍</button>
+            <a class="primary-button" href="#little-things">Take me to the good stuff</a>
+          </div>
+
+          <p class="intro-note">
+            Scroll through this like a little movie, or hop around using the titles on the left.
+            However you move through it, it’s all just… us.
+          </p>
+        </div>
+      </section>
+
+      <!-- LITTLE THINGS -->
+      <section class="section" id="little-things">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene II · The Little Things</p>
+            <h2>Some of the little things I love about you</h2>
+            <p class="section-sub">
+              The big things are obvious. These are the quiet ones I notice anyway.
+            </p>
+          </header>
+
+          <ul class="love-list">
+            <li>The way being around you makes everything feel lighter.</li>
+            <li>Your goofy burst out laugh you do, especially when you’re trying not to laugh.</li>
+            <li>How you actually listen, even to my random little rants.</li>
+            <li>How safe and homeie you make everything feel.</li>
+            <li>The way you care without needing any spotlight on you.</li>
+            <li>How ambitious and self driven you are.</li>
+            <li>The way you can be your authentic funny, goofy self without caring who’s around. 100% Indy.</li>
+            <li>The way you check on people you love.</li>
+            <li>How you value friendships/relationships.</li>
+            <li>Your high pitch voice when you’re talking about something you’re passionate about.</li>
+            <li>I love your laugh, your mind, your little habits… even the tiniest expression you don’t know you make.</li>
+            <li>Gist of this is… I love you.</li>
+          </ul>
+
+          <div class="mood-block">
+            <p class="mood-question">Be honest: reading this right now you feel more…</p>
+            <div class="mood-buttons">
+              <button class="mood-btn" data-mood="loved">💗 Loved</button>
+              <button class="mood-btn" data-mood="curious">🥰 Curious</button>
+              <button class="mood-btn" data-mood="calm">😌 Calm</button>
             </div>
-        </div>
+            <p class="mood-response" id="moodResponse">Tap one. I’ll answer to that version of you.</p>
+          </div>
 
-        <button class="pull-button" id="pullButton" onclick="pullNote()">Pull a Note 🌸</button>
-        
-        <div class="note-display" id="noteDisplay">
-            <p class="note-content" id="noteContent"></p>
+          <div class="mood-block">
+            <p class="mood-question">Bonus scene: want to pull random little reasons I love you?</p>
+            <a href="jar.html" class="primary-button">Open the Jar 🌸</a>
+          </div>
+
+          <!-- Valentine mini-game (RUNAWAY NO) -->
+          <div class="mood-block valentine-mini" data-valentine>
+            <p class="mood-question big-q">Will you be my Valentine? 💘</p>
+
+            <div class="valentine-buttons" aria-label="Valentine question buttons">
+              <button class="val-btn val-yes" type="button">Yes 💚</button>
+              <button class="val-btn val-no" type="button">No ❤️‍🩹</button>
+            </div>
+
+            <p class="valentine-result" aria-live="polite"></p>
+
+            <button class="val-continue" type="button" style="display:none;">
+              Okay… keep going 💌
+            </button>
+            <p class="valentine-sub" style="display:none;">
+              (I’m smiling right now.)
+            </p>
+          </div>
         </div>
-        
-        <p class="note-number" id="noteNumber"></p>
-        
-        <button class="reset-button" id="resetButton" onclick="resetJar()" style="display: none;">Fill the Jar Again 💝</button>
+      </section>
+
+      <!-- MEMORIES -->
+      <section class="section" id="memories">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene III · Flashbacks</p>
+            <h2>Little moments that live rent-free in my head</h2>
+            <p class="section-sub">
+              Not a full timeline. Just the ones that replay when my brain decides to think about you for no reason.
+            </p>
+          </header>
+
+          <div class="memories-layout">
+            <div class="memories-column">
+              <div class="memory-card" data-revealed="false">
+                <p class="memory-label">A favorite memory with you</p>
+                <p class="memory-hint">Tap to reveal</p>
+                <p class="memory-text">
+                  Our weekend in New York, spending time with each other and discovering new restaurants we both enjoyed...
+                  (need to go back to Bubby’s)!!
+                </p>
+              </div>
+
+              <div class="memory-card" data-revealed="false">
+                <p class="memory-label">The first time I saw you differently</p>
+                <p class="memory-hint">Tap to reveal</p>
+                <p class="memory-text">
+                  The moment you laughed at something I said and then looked away,
+                  but I could tell you were still smiling lol
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-column">
+              <div class="mini-timeline">
+                <div class="timeline-item current">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>The day we met</h3>
+                    <p>At Katana Sushi, time closed around us, but we were just the beginning.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>That one night that felt different</h3>
+                    <p>We were talking, but not about anything important… it just felt safe.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>A small moment that meant a lot</h3>
+                    <p>The way you reached for me without thinking. You saw I was upset & wanted to help.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="content">
+                    <h3>Right now</h3>
+                    <p>You, reading this. Me, somewhere, thinking about you while you do.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="audio-notes">
+            <p class="audio-label">If you’d rather hear me instead of just read me:</p>
+            <div class="audio-buttons">
+              <button class="audio-btn" data-audio="voice1" type="button">Play this 💬</button>
+              <button class="audio-btn" data-audio="voice2" type="button">One thing I never say out loud</button>
+            </div>
+
+            <audio id="voice1" src="audio/voice1.mp3"></audio>
+            <audio id="voice2" src="audio/voice2.mp3"></audio>
+          </div>
+        </div>
+      </section>
+
+      <!-- FUTURE -->
+      <section class="section section-future" id="future">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene IV · What Comes Next</p>
+            <h2>Where this is all going</h2>
+            <p class="section-sub">I don’t have every detail, but I know who I want in the picture.</p>
+          </header>
+
+          <p class="future-text typewriter" data-text="
+I don’t know exactly what the future looks like yet.
+But I know this: I want you there with me.
+More little moments. More late-night laughs. More ‘us.’"></p>
+
+          <p class="future-text">
+            Thank you for being you.<br />
+            Thank you for letting me be me with you.<br />
+            Happy Valentine’s Day, love. ❤️
+          </p>
+
+          <p class="future-text ps">
+            P.S. There’s one more tiny surprise waiting for you:<br />
+            <span class="clue">
+              go check the place where we usually keep
+              <span class="clue-blank">Cat Products</span>.
+            </span>
+          </p>
+
+          <button class="primary-button reveal-button" id="revealButton" type="button">
+            Tap for your Valentine’s reveal 💌
+          </button>
+
+          <div class="reveal-message" id="revealMessage">
+            <p class="typewriter" data-text="
+I could’ve kept this simple. I could’ve made it flashy.
+Instead I made it like this, because I keep choosing you."></p>
+
+            <p class="reveal-details" id="revealDetails">
+              Surprise: I planned something for us.<br />
+              Keep scrolling to find out 😏
+            </p>
+          </div>
+
+          <p class="replay-note">You can come back and read this whenever you want.</p>
+        </div>
+      </section>
+
+      <!-- RESERVATION -->
+      <section class="section section-reservation" id="reservation">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="scene-label">Scene V · The Night Out</p>
+            <h2>Our Reservation</h2>
+            <p class="section-sub">Turning this from a page into a real night together.</p>
+          </header>
+
+          <p class="future-text">
+            I picked a place that feels like us – warm, a little extra, and made for lingering.
+            When you’re ready, tap below and I’ll take you there.
+          </p>
+
+          <a
+            href="https://www.boucherieus.com/"
+            class="primary-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="margin-top: 1.5rem; display: inline-block;"
+          >
+            View Our Night at Boucherie 🍷
+          </a>
+
+          <p class="future-text ps" style="margin-top: 1.5rem;">
+            (It’ll open in a new tab so you don’t lose this.)
+          </p>
+
+          <p class="credits-note">
+            Starring: Us · Written & directed by: Me thinking about you… ❤️
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SECRET TOAST + OVERLAY -->
+  <div class="secret-toast" id="secretToast">
+    Okay so… you officially found a secret.
+    Just wanted to say: you’re my favorite person. Ever Indya!
+  </div>
+  <div class="dim-overlay" id="dimOverlay"></div>
+
+  <!-- Apple Music style player -->
+  <div class="music-player" id="musicPlayer" aria-label="Music player">
+    <div class="player-art">
+      <img id="playerArt" src="images/cover1.jpg" alt="Album art">
     </div>
 
-    <script>
-        // Add your personal reasons here! Add as many as you want!
-        const reasons = [
-            "Your smile lights up my entire world and makes even the darkest days brighter ☀️",
-            "The way you laugh at my silly jokes, even when they're not that funny 😊",
-            "How you always know exactly what to say when I need comfort",
-            "Your kindness towards everyone you meet inspires me every day",
-            "The sparkle in your eyes when you talk about things you're passionate about ✨",
-            "How you make me want to be a better person just by being yourself",
-            "Your hugs feel like coming home after a long journey 🏡",
-            "The cute way you scrunch your nose when you're concentrating",
-            "How you remember the little things I tell you, even in passing",
-            "Your strength and courage in facing challenges head-on 💪",
-            "The way you get excited about your favorite anime - your passion is adorable 🌸",
-            "How you make ordinary moments feel extraordinary",
-            "Your beautiful heart and the way you care for others",
-            "The sound of your voice, especially when you're excited about something",
-            "How you support my dreams and believe in me unconditionally",
-            "Your adorable quirks that make you uniquely YOU",
-            "The way you hold my hand and make me feel safe 🤝",
-            "How you can turn any place into an adventure",
-            "Your intelligence and the fascinating conversations we have",
-            "The way you look at me like I'm the only person in the room 👀",
-            "How you make me laugh until my stomach hurts",
-            "Your creativity and unique perspective on the world",
-            "The comfort I feel just being in your presence",
-            "How you push me to grow while loving me exactly as I am",
-            "Your patience with me, especially when I'm being difficult",
-            "The way you celebrate my victories as if they were your own 🎉",
-            "How you make even mundane tasks fun when we're together",
-            "Your thoughtfulness in the little gestures you do daily",
-            "The peace I feel when I'm with you 🕊️",
-            "How you accept and love all of me, flaws included",
-            "Your passion for life and trying new things",
-            "The way you make me feel understood and heard",
-            "How every day with you is a new favorite memory being made",
-            "Just like the characters in your favorite anime, you bloom with dignity and grace 🌸",
-            "Your gorgeous soul that shines from the inside out ✨",
-            "Simply put: you're the best thing that ever happened to me 💖"
-        ];
+    <div class="player-info">
+      <div class="now-playing" id="nowPlaying" aria-live="polite">
+        <span class="np-dot"></span>
+        <span class="np-text">Now Playing For Indya</span>
+        <span class="np-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </div>
 
-        let availableReasons = [...reasons];
-        let pulledCount = 0;
+      <div class="player-title" id="playerTitle">Song Title</div>
+      <div class="player-sub">Curated by Xavier 💘</div>
 
-        // Create falling sakura petals
-        function createSakuraPetal() {
-            const petal = document.createElement('div');
-            petal.className = 'petal';
-            petal.innerHTML = '🌸';
-            petal.style.left = Math.random() * 100 + '%';
-            petal.style.animationDelay = Math.random() * 12 + 's';
-            petal.style.fontSize = (Math.random() * 15 + 15) + 'px';
-            petal.style.animationDuration = (Math.random() * 8 + 10) + 's';
-            document.getElementById('sakuraBg').appendChild(petal);
-        }
+      <div class="player-controls">
+        <button id="prevTrack" type="button" aria-label="Previous track">⏮</button>
+        <button id="playPause" type="button" aria-label="Play or pause">▶</button>
+        <button id="nextTrack" type="button" aria-label="Next track">⏭</button>
+      </div>
 
-        // Create multiple sakura petals
-        for (let i = 0; i < 20; i++) {
-            createSakuraPetal();
-        }
+      <div class="progress-container" aria-hidden="true">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
 
-        // Initialize mini notes in jar
-        function initializeJar() {
-            const container = document.getElementById('notesContainer');
-            container.innerHTML = '';
-            for (let i = 0; i < 25; i++) {
-                const miniNote = document.createElement('div');
-                miniNote.className = 'mini-note';
-                miniNote.style.animationDelay = (i * 0.05) + 's';
-                container.appendChild(miniNote);
-            }
-        }
+      <div class="track-list" id="trackList" aria-label="Track list"></div>
+    </div>
+  </div>
 
-        initializeJar();
+  <audio id="audioPlayer"></audio>
 
-        function pullNote() {
-            if (availableReasons.length === 0) {
-                return;
-            }
-
-            // Get random reason
-            const randomIndex = Math.floor(Math.random() * availableReasons.length);
-            const reason = availableReasons[randomIndex];
-            availableReasons.splice(randomIndex, 1);
-            pulledCount++;
-
-            // Remove a mini note
-            const notesContainer = document.getElementById('notesContainer');
-            if (notesContainer.children.length > 0) {
-                notesContainer.removeChild(notesContainer.lastChild);
-            }
-
-            // Display the note
-            const noteDisplay = document.getElementById('noteDisplay');
-            const noteContent = document.getElementById('noteContent');
-            const noteNumber = document.getElementById('noteNumber');
-            
-            noteDisplay.classList.remove('show');
-            
-            setTimeout(() => {
-                noteContent.innerHTML = reason;
-                noteDisplay.classList.add('show');
-                noteNumber.textContent = `Reason ${pulledCount} of ${reasons.length} 🌸`;
-            }, 300);
-
-            // Show reset button when all notes are pulled
-            if (availableReasons.length === 0) {
-                document.getElementById('pullButton').style.display = 'none';
-                document.getElementById('resetButton').style.display = 'inline-block';
-            }
-        }
-
-        function resetJar() {
-            availableReasons = [...reasons];
-            pulledCount = 0;
-            
-            const noteDisplay = document.getElementById('noteDisplay');
-            noteDisplay.classList.remove('show');
-            
-            document.getElementById('noteNumber').textContent = '';
-            document.getElementById('pullButton').style.display = 'inline-block';
-            document.getElementById('resetButton').style.display = 'none';
-            
-            initializeJar();
-        }
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>

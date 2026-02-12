@@ -1,8 +1,9 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>For You, From Me ❤️</title>
+  <title>For Indya, From Xavier ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,7 +12,7 @@
   <div class="side-hearts side-hearts-left" aria-hidden="true"></div>
   <div class="side-hearts side-hearts-right" aria-hidden="true"></div>
 
-  <!-- NEW: upward floating hearts + random photos layers -->
+  <!-- Effects layers -->
   <div id="floatingHeartsLayer" aria-hidden="true"></div>
   <div id="randomPhotosLayer" aria-hidden="true"></div>
 
@@ -29,39 +30,27 @@
 
         <nav class="nav-list">
           <a class="nav-link active" href="#intro" data-section="intro">
-            <span class="nav-index">I</span>
-            <span>Intro</span>
+            <span class="nav-index">I</span><span>Intro</span>
           </a>
           <a class="nav-link" href="#little-things" data-section="little-things">
-            <span class="nav-index">II</span>
-            <span>Little Things</span>
+            <span class="nav-index">II</span><span>Little Things</span>
           </a>
           <a class="nav-link" href="#memories" data-section="memories">
-            <span class="nav-index">III</span>
-            <span>Memories</span>
+            <span class="nav-index">III</span><span>Memories</span>
           </a>
           <a class="nav-link" href="#future" data-section="future">
-            <span class="nav-index">IV</span>
-            <span>Future</span>
+            <span class="nav-index">IV</span><span>Future</span>
           </a>
           <a class="nav-link" href="#reservation" data-section="reservation">
-            <span class="nav-index">V</span>
-            <span>Reservation</span>
+            <span class="nav-index">V</span><span>Reservation</span>
           </a>
         </nav>
-      </div>
-
-      <div class="sidebar-bottom">
-        <p class="sidebar-note">
-          Scroll or tap the chapters on the left.<br />
-          Tiny hint: some things react if you tap them. 👀
-        </p>
       </div>
     </aside>
 
     <!-- RIGHT CONTENT -->
     <main class="content">
-      <!-- INTRO SECTION (SCENE I) -->
+      <!-- INTRO -->
       <section class="section" id="intro">
         <div class="section-inner">
           <header class="section-header">
@@ -70,30 +59,42 @@
               Hi, love.
               <button class="tiny-heart" id="tinyHeart" aria-label="Hidden message">❤️</button>
             </h1>
+
             <p
               class="typewriter intro-text"
               data-text="
-I wanted to give you something a little different.
-Not an order from an app, not something anyone else could’ve bought.
-Just me, thinking about you, and turning it into this."
+I wanted to give you something different — something you don’t physically have, but can reach anytime. Something attainable anywhere. Something that can keep building forever. Something you could never really lose.
+
+Not an order from an app.
+Not something anyone else could’ve bought.
+
+Just me, thinking about you a little longer than usual… and turning those thoughts into this.
+
+I didn’t want it to be loud or flashy. I didn’t want it to be something that sits on a shelf. I wanted it to be something that feels like us — simple, intentional, real.
+
+Something that grows the more we add to it.
+Something that lasts.
+
+Just me.
+Thinking about you.
+And making that the gift. 💌
+              "
             ></p>
           </header>
 
           <div class="intro-actions">
             <button class="pill-button" id="usButton">Us together 🤍</button>
-            <a class="primary-button" href="#little-things">
-              Take me to the good stuff
-            </a>
+            <a class="primary-button" href="#little-things">Take me to the good stuff</a>
           </div>
 
           <p class="intro-note">
-            You can scroll through this like a little movie, or hop around using the titles on the left.  
+            Scroll through this like a little movie, or hop around using the titles on the left.
             However you move through it, it’s all just… us.
           </p>
         </div>
       </section>
 
-      <!-- LITTLE THINGS SECTION (SCENE II) -->
+      <!-- LITTLE THINGS -->
       <section class="section" id="little-things">
         <div class="section-inner">
           <header class="section-header">
@@ -106,38 +107,56 @@ Just me, thinking about you, and turning it into this."
 
           <ul class="love-list">
             <li>The way being around you makes everything feel lighter.</li>
-            <li>Your laugh, especially when you’re trying not to laugh.</li>
+            <li>Your goofy burst out laugh you do, especially when you’re trying not to laugh.</li>
             <li>How you actually listen, even to my random little rants.</li>
-            <li>How safe and calm you make everything feel.</li>
+            <li>How safe and homeie you make everything feel.</li>
             <li>The way you care without needing any spotlight on you.</li>
+            <li>How ambitious and self driven you are.</li>
+            <li>The way you can be your authentic funny, goofy self without caring who’s around. 100% Indy.</li>
+            <li>The way you check on people you love.</li>
+            <li>How you value friendships/relationships.</li>
+            <li>Your high pitch voice when you’re talking about something you’re passionate about.</li>
+            <li>I love your laugh, your mind, your little habits… even the tiniest expression you don’t know you make.</li>
+            <li>Gist of this is… I love you.</li>
           </ul>
 
           <div class="mood-block">
-            <p class="mood-question">
-              Be honest: reading this right now you feel more…
-            </p>
+            <p class="mood-question">Be honest: reading this right now you feel more…</p>
             <div class="mood-buttons">
               <button class="mood-btn" data-mood="loved">💗 Loved</button>
               <button class="mood-btn" data-mood="curious">🥰 Curious</button>
               <button class="mood-btn" data-mood="calm">😌 Calm</button>
             </div>
-            <p class="mood-response" id="moodResponse">
-              Tap one. I’ll answer to that version of you.
-            </p>
+            <p class="mood-response" id="moodResponse">Tap one. I’ll answer to that version of you.</p>
           </div>
 
           <div class="mood-block">
-            <p class="mood-question">
-              Bonus scene: want to pull random little reasons I love you?
+            <p class="mood-question">Bonus scene: want to pull random little reasons I love you?</p>
+            <a href="jar.html" class="primary-button">Open the Jar 🌸</a>
+          </div>
+
+          <!-- Valentine mini-game (RUNAWAY NO) -->
+          <div class="mood-block valentine-mini" data-valentine>
+            <p class="mood-question big-q">Will you be my Valentine? 💘</p>
+
+            <div class="valentine-buttons" aria-label="Valentine question buttons">
+              <button class="val-btn val-yes" type="button">Yes 💚</button>
+              <button class="val-btn val-no" type="button">No ❤️‍🩹</button>
+            </div>
+
+            <p class="valentine-result" aria-live="polite"></p>
+
+            <button class="val-continue" type="button" style="display:none;">
+              Okay… keep going 💌
+            </button>
+            <p class="valentine-sub" style="display:none;">
+              (I’m smiling right now.)
             </p>
-            <a href="jar.html" class="primary-button">
-              Find out open the Jar 🌸
-            </a>
           </div>
         </div>
       </section>
 
-      <!-- MEMORIES SECTION (SCENE III) -->
+      <!-- MEMORIES -->
       <section class="section" id="memories">
         <div class="section-inner">
           <header class="section-header">
@@ -154,8 +173,8 @@ Just me, thinking about you, and turning it into this."
                 <p class="memory-label">A favorite memory with you</p>
                 <p class="memory-hint">Tap to reveal</p>
                 <p class="memory-text">
-                  That night we were both tired but still stayed up talking until we realized how late it was.  
-                  I remember the feeling more than the conversation.
+                  Our weekend in New York, spending time with each other and discovering new restaurants we both enjoyed...
+                  (need to go back to Bubby’s)!!
                 </p>
               </div>
 
@@ -163,8 +182,8 @@ Just me, thinking about you, and turning it into this."
                 <p class="memory-label">The first time I saw you differently</p>
                 <p class="memory-hint">Tap to reveal</p>
                 <p class="memory-text">
-                  The moment you laughed at something I said and then looked away,  
-                  but I could tell you were still smiling.
+                  The moment you laughed at something I said and then looked away,
+                  but I could tell you were still smiling lol
                 </p>
               </div>
             </div>
@@ -175,7 +194,7 @@ Just me, thinking about you, and turning it into this."
                   <div class="dot"></div>
                   <div class="content">
                     <h3>The day we met</h3>
-                    <p>I didn’t know it yet, but something had just shifted.</p>
+                    <p>At Katana Sushi, time closed around us, but we were just the beginning.</p>
                   </div>
                 </div>
 
@@ -183,7 +202,7 @@ Just me, thinking about you, and turning it into this."
                   <div class="dot"></div>
                   <div class="content">
                     <h3>That one night that felt different</h3>
-                    <p>We were just talking, but suddenly it didn’t feel like “just talking” anymore.</p>
+                    <p>We were talking, but not about anything important… it just felt safe.</p>
                   </div>
                 </div>
 
@@ -191,7 +210,7 @@ Just me, thinking about you, and turning it into this."
                   <div class="dot"></div>
                   <div class="content">
                     <h3>A small moment that meant a lot</h3>
-                    <p>The way you reached for me without thinking. It was tiny. I still think about it.</p>
+                    <p>The way you reached for me without thinking. You saw I was upset & wanted to help.</p>
                   </div>
                 </div>
 
@@ -207,39 +226,31 @@ Just me, thinking about you, and turning it into this."
           </div>
 
           <div class="audio-notes">
-            <p class="audio-label">
-              If you’d rather hear me instead of just read me:
-            </p>
+            <p class="audio-label">If you’d rather hear me instead of just read me:</p>
             <div class="audio-buttons">
-              <button class="audio-btn" data-audio="voice1">Play this 💬</button>
-              <button class="audio-btn" data-audio="voice2">One thing I never say out loud</button>
+              <button class="audio-btn" data-audio="voice1" type="button">Play this 💬</button>
+              <button class="audio-btn" data-audio="voice2" type="button">One thing I never say out loud</button>
             </div>
 
-            <!-- Replace with your real files -->
             <audio id="voice1" src="audio/voice1.mp3"></audio>
             <audio id="voice2" src="audio/voice2.mp3"></audio>
           </div>
         </div>
       </section>
 
-      <!-- FUTURE / REVEAL SECTION (SCENE IV) -->
+      <!-- FUTURE -->
       <section class="section section-future" id="future">
         <div class="section-inner">
           <header class="section-header">
             <p class="scene-label">Scene IV · What Comes Next</p>
             <h2>Where this is all going</h2>
-            <p class="section-sub">
-              I don’t have every detail, but I know who I want in the picture.
-            </p>
+            <p class="section-sub">I don’t have every detail, but I know who I want in the picture.</p>
           </header>
 
-          <p
-            class="future-text typewriter"
-            data-text="
+          <p class="future-text typewriter" data-text="
 I don’t know exactly what the future looks like yet.
 But I know this: I want you there with me.
-More little moments. More late-night laughs. More ‘us.’"
-          ></p>
+More little moments. More late-night laughs. More ‘us.’"></p>
 
           <p class="future-text">
             Thank you for being you.<br />
@@ -251,47 +262,40 @@ More little moments. More late-night laughs. More ‘us.’"
             P.S. There’s one more tiny surprise waiting for you:<br />
             <span class="clue">
               go check the place where we usually keep
-              <span class="clue-blank">[replace this with your clue]</span>.
+              <span class="clue-blank">Cat Products</span>.
             </span>
           </p>
 
-          <button class="primary-button reveal-button" id="revealButton">
+          <button class="primary-button reveal-button" id="revealButton" type="button">
             Tap for your Valentine’s reveal 💌
           </button>
 
           <div class="reveal-message" id="revealMessage">
-            <p
-              class="typewriter"
-              data-text="
+            <p class="typewriter" data-text="
 I could’ve kept this simple. I could’ve made it flashy.
-Instead I made it like this, because I keep choosing you."
-            ></p>
+Instead I made it like this, because I keep choosing you."></p>
 
             <p class="reveal-details" id="revealDetails">
               Surprise: I planned something for us.<br />
-              [Edit this line with the real plan you have for the night.]
+              Keep scrolling to find out 😏
             </p>
           </div>
 
-          <p class="replay-note">
-            You can come back and read this whenever you want.
-          </p>
+          <p class="replay-note">You can come back and read this whenever you want.</p>
         </div>
       </section>
 
-      <!-- RESERVATION SECTION (SCENE V · END TITLE) -->
+      <!-- RESERVATION -->
       <section class="section section-reservation" id="reservation">
         <div class="section-inner">
           <header class="section-header">
             <p class="scene-label">Scene V · The Night Out</p>
             <h2>Our Reservation</h2>
-            <p class="section-sub">
-              Turning this from a page into a real night together.
-            </p>
+            <p class="section-sub">Turning this from a page into a real night together.</p>
           </header>
 
           <p class="future-text">
-            I picked a place that feels like us – warm, a little extra, and made for lingering.  
+            I picked a place that feels like us – warm, a little extra, and made for lingering.
             When you’re ready, tap below and I’ll take you there.
           </p>
 
@@ -310,20 +314,51 @@ Instead I made it like this, because I keep choosing you."
           </p>
 
           <p class="credits-note">
-            Starring: You & Me · Written & directed by: Me thinking about you.
+            Starring: Us · Written & directed by: Me thinking about you… ❤️
           </p>
         </div>
       </section>
     </main>
   </div>
 
-  <!-- GLOBAL SECRET TOAST + OVERLAY -->
+  <!-- SECRET TOAST + OVERLAY -->
   <div class="secret-toast" id="secretToast">
-    Okay so… you officially found a secret.  
-    Just wanted to say: you’re my favorite person. Ever.
+    Okay so… you officially found a secret.
+    Just wanted to say: you’re my favorite person. Ever Indya!
+  </div>
+  <div class="dim-overlay" id="dimOverlay"></div>
+
+  <!-- Apple Music style player -->
+  <div class="music-player" id="musicPlayer" aria-label="Music player">
+    <div class="player-art">
+      <img id="playerArt" src="images/cover1.jpg" alt="Album art">
+    </div>
+
+    <div class="player-info">
+      <div class="now-playing" id="nowPlaying" aria-live="polite">
+        <span class="np-dot"></span>
+        <span class="np-text">Now Playing For Indya</span>
+        <span class="np-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </div>
+
+      <div class="player-title" id="playerTitle">Song Title</div>
+      <div class="player-sub">Curated by Xavier 💘</div>
+
+      <div class="player-controls">
+        <button id="prevTrack" type="button" aria-label="Previous track">⏮</button>
+        <button id="playPause" type="button" aria-label="Play or pause">▶</button>
+        <button id="nextTrack" type="button" aria-label="Next track">⏭</button>
+      </div>
+
+      <div class="progress-container" aria-hidden="true">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="track-list" id="trackList" aria-label="Track list"></div>
+    </div>
   </div>
 
-  <div class="dim-overlay" id="dimOverlay"></div>
+  <audio id="audioPlayer"></audio>
 
   <script src="script.js"></script>
 </body>

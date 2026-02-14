@@ -460,11 +460,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (musicPlayer && audioA && audioB) {
     let tracks = [
-      { title: "Somebody's Son", artist: "Tiwa Savage ft. Brandy", src: "audio/song1.mp3", cover: "images/cover1.jpg" },
+      { title: "Somebody's Son", artist: "Ella Mai", src: "audio/song1.mp3", cover: "images/cover1.jpg" },
       { title: "Burning Blue", artist: "Mariah the Scientist", src: "audio/song2.mp3", cover: "images/cover2.jpg" },
       { title: "Next To You", artist: "Bryson Tiller", src: "audio/song3.mp3", cover: "images/cover3.jpg" },
-      { title: "Yes It Is", artist: "The Beatles", src: "audio/song4.mp3", cover: "images/cover4.jpg" },
-      { title: "I Need Her", artist: "Unknown Artist", src: "audio/song5.mp3", cover: "images/cover5.jpg" },
+      { title: "Yes It Is", artist: "Leon Thomas", src: "audio/song4.mp3", cover: "images/cover4.jpg" },
+      { title: "I Need Her", artist: "Bryson Tiller", src: "audio/song5.mp3", cover: "images/cover5.jpg" },
       { title: "I Want You Around", artist: "Snoh Aalegra", src: "audio/song6.mp3", cover: "images/cover6.jpg" },
       { title: "Blessed", artist: "Daniel Caesar", src: "audio/song7.mp3", cover: "images/cover7.jpg" },
       { title: "Die With A Smile", artist: "Lady Gaga & Bruno Mars", src: "audio/song8.mp3", cover: "images/cover8.jpg" },
@@ -792,3 +792,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 450);
   }
 });
+

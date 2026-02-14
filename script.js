@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (timeGreeting) {
     const hour = new Date().getHours();
     let msg = "FOR INDYA, FROM XAVIER";
-    if (hour >= 5 && hour < 12) msg = "GOOD MORNING, LOVE";
+    if (hour >= 5 && hour < 12) msg = "GOOD MORNING,🤎";
     else if (hour >= 12 && hour < 18) msg = "HAPPY VALENTINE'S DAY!";
-    else msg = "GOOD EVENING, LOVE";
+    else msg = "GOOD EVENING,🤎";
     timeGreeting.textContent = msg;
   }
 
